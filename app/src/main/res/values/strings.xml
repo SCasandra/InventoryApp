@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">InventoryApp</string>
+    <string name="name"><b>Name: </b></string>
+    <string name="quantity"><b>Quantity: </b></string>
+    <string name="price"><b>Price: </b></string>
+    <string name="add">Add</string>
+    <string name="null_content">null</string>
+    <string name="editor_insert_product_failed">Error with saving product</string>
+    <string name="editor_insert_product_successful">Product saved</string>
+    <string name="field_required">Product requires all fields</string>
+    <string name="update_failed">Update is not supported for this uri</string>
+    <string name="deletion_failed">Deletion is not supported for this uri</string>
+    <string name="deletion_successful">Delete product successful</string>
+    <string name="unknown_uri">Unknown URI</string>
+    <string name="insertion_failed">Insertion is not supported for this uri</string>
+    <string name="query_failed">Cannot query unknown URI</string>
+    <string name="current_stock">Current quantity is </string>
+    <string name="order">Order</string>
+    <string name="delete">Delete</string>
+    <string name="yes">Yes</string>
+    <string name="cancel">Cancel</string>
+    <string name="dialog_message">Are you sure ?</string>
+    <string name="toCamera">Take Picture</string>
+    <string name="empty_title_text">No product</string>
+    <string name="empty_subtitle_text">Please add a new product</string>
+</resources>

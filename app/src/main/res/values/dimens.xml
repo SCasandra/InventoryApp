@@ -1,0 +1,8 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="content_margin">14dp</dimen>
+    <dimen name="little_margin">6dp</dimen>
+    <dimen name="image_height">100dp</dimen>
+    <dimen name="image_width">140dp</dimen>
+    <dimen name="content_big_margin">50dp</dimen>
+</resources>
