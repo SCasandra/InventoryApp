@@ -19,7 +19,8 @@ public class ProductDbHelper extends SQLiteOpenHelper {
                     ProductContract.ProductEntry.COLUMN_PICTURE + " TEXT," +
                     ProductContract.ProductEntry.COLUMN_PRICE + " INTEGER)";
     private static final String SQL_DELETE_ENTRIES =
-            "DROP TABLE IF EXISTS " +  ProductContract.ProductEntry.TABLE_NAME;
+            "DROP TABLE IF EXISTS " + ProductContract.ProductEntry.TABLE_NAME;
+
     public ProductDbHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }

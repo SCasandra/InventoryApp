@@ -39,20 +39,20 @@
 
     <Button
         android:id="@+id/toCameraBtn"
+        style="?android:buttonBarButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:onClick="launchCamera"
-        style="?android:buttonBarButtonStyle"
         android:drawableTop="@drawable/ic_add_a_photo_black_24dp"
+        android:onClick="launchCamera"
         android:text="@string/toCamera" />
 
     <Button
         android:id="@+id/add_product_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/image_height"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/image_height"
         android:text="@string/add" />
 
 </LinearLayout>

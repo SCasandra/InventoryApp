@@ -79,13 +79,11 @@ public class EditorActivity extends AppCompatActivity {
         try {
             photo = (Bitmap) extras.get("data");
         } catch (Exception e) {
-
         }
-
         if (photo != null) {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             photo.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-             picture = Arrays.toString(baos.toByteArray());
+            picture = Arrays.toString(baos.toByteArray());
         }
     }
 

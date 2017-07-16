@@ -23,4 +23,5 @@
     <string name="toCamera">Take Picture</string>
     <string name="empty_title_text">No product</string>
     <string name="empty_subtitle_text">Please add a new product</string>
+    <string name="order_subject">Order/feedback</string>
 </resources>

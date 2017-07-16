@@ -6,9 +6,9 @@
     android:padding="@dimen/content_margin">
 
     <LinearLayout
+        android:id="@+id/lay1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lay1"
         android:orientation="horizontal">
 
         <TextView
@@ -23,9 +23,9 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/lay2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lay2"
         android:layout_below="@+id/lay1"
         android:orientation="horizontal">
 
@@ -41,9 +41,9 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/lay3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/lay3"
         android:layout_below="@+id/lay2"
         android:orientation="horizontal">
 
@@ -54,9 +54,9 @@
 
         <TextView
             android:id="@+id/product_price"
-            android:gravity="center"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:gravity="center" />
     </LinearLayout>
 
     <Button

@@ -103,14 +103,17 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
 
     private void sendMail(String name, int quantity, int price) {
         Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.order_subject));
+        intent.putExtra(Intent.EXTRA_TEXT, getString(R.string.name) + name + "\n" + getString(R.string.quantity)
+                + quantity + "\n" + getString(R.string.price) + price);
         if (intent.resolveActivity(getPackageManager()) != null) {
-            intent.putExtra(Intent.EXTRA_TEXT, "Name: " + name + "\n Quantity: " + quantity + "\nPrice: " + price);
             startActivity(intent);
         }
     }
 
     private void delete() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.dialog_message)
                 .setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -130,6 +133,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
                     }
                 });
         builder.create();
+        builder.show();
     }
 
     @Override
