@@ -160,12 +160,11 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
     }
 
     private Bitmap loadImageFromStorage(String path) {
-        ContextWrapper cw = new ContextWrapper(getApplicationContext());
-        File directory = cw.getDir("images", Context.MODE_PRIVATE);
+        ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
+        File directory = contextWrapper.getDir("images", Context.MODE_PRIVATE);
         try {
-            File f = new File(directory, path + ".jpg");
-            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
-            return b;
+            File file = new File(directory, path + ".jpg");
+            return BitmapFactory.decodeStream(new FileInputStream(file));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
