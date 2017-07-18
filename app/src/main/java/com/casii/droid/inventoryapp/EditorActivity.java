@@ -19,10 +19,8 @@ import com.casii.droid.inventoryapp.data.ProductContract;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class EditorActivity extends AppCompatActivity {
-    private Button toCameraBtn;
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private int pictureId = 0;
     private Bitmap photo;
@@ -35,7 +33,7 @@ public class EditorActivity extends AppCompatActivity {
         final EditText name_editText = (EditText) findViewById(R.id.name);
         final EditText quatity_editText = (EditText) findViewById(R.id.quantity);
         final EditText price_editText = (EditText) findViewById(R.id.price);
-        toCameraBtn = (Button) findViewById(R.id.toCameraBtn);
+        Button toCameraBtn = (Button) findViewById(R.id.toCameraBtn);
         toCameraBtn.setEnabled(hasCamera());
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,33 +82,21 @@ public class EditorActivity extends AppCompatActivity {
             photo = (Bitmap) extras.get("data");
             saveToInternalStorage(photo);
         } catch (Exception e) {
+            e.printStackTrace();
         }
-       /* if (photo != null) {
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            photo.compress(Bitmap.CompressFormat.JPEG, 100, baos);
-            picture = Arrays.toString(baos.toByteArray());
-        }*/
     }
 
     private String saveToInternalStorage(Bitmap bitmapImage) {
-        ContextWrapper cw = new ContextWrapper(getApplicationContext());
-        // path to /data/data/yourapp/app_data/imageDir
-        File directory = cw.getDir("images", Context.MODE_PRIVATE);
-        // Create imageDir
+        ContextWrapper contextWrapper = new ContextWrapper(getApplicationContext());
+        File directory = contextWrapper.getDir("images", Context.MODE_PRIVATE);
         File myPath = new File(directory, pictureId + ".jpg");
-        FileOutputStream fos = null;
+        FileOutputStream fileOutputStream;
         try {
-            fos = new FileOutputStream(myPath);
-            // Use the compress method on the BitMap object to write image to the OutputStream
-            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fileOutputStream = new FileOutputStream(myPath);
+            bitmapImage.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream);
+            fileOutputStream.close();
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            try {
-                fos.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
         return directory.getAbsolutePath();
     }

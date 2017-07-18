@@ -151,7 +151,6 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-
     }
 
     public int setQuantity(int quantity) {
@@ -162,7 +161,6 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
 
     private Bitmap loadImageFromStorage(String path) {
         ContextWrapper cw = new ContextWrapper(getApplicationContext());
-        // path to /data/data/yourapp/app_data/imageDir
         File directory = cw.getDir("images", Context.MODE_PRIVATE);
         try {
             File f = new File(directory, path + ".jpg");
