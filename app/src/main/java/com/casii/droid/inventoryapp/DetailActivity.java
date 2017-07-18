@@ -1,9 +1,13 @@
 package com.casii.droid.inventoryapp;
 
 import android.content.ContentValues;
+import android.content.Context;
+import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.LoaderManager;
@@ -14,10 +18,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.casii.droid.inventoryapp.data.ProductContract;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class DetailActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private Uri mCurrentProductUri;
@@ -29,6 +38,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
     private ImageButton decrease_btn;
     private Button delete_btn;
     private Button order_btn;
+    private ImageView productImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +51,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         decrease_btn = (ImageButton) findViewById(R.id.minus);
         delete_btn = (Button) findViewById(R.id.delete_all_btn);
         order_btn = (Button) findViewById(R.id.order_btn);
+        productImageView = (ImageView) findViewById(R.id.product_image_view);
         Intent intent = getIntent();
         mCurrentProductUri = intent.getData();
         if (mCurrentProductUri != null) {
@@ -66,9 +77,14 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
             final int nameIndex = data.getColumnIndex(ProductContract.ProductEntry.COLUMN_NAME);
             final int quantityIndex = data.getColumnIndex(ProductContract.ProductEntry.COLUMN_QUANTITY);
             final int priceIndex = data.getColumnIndex(ProductContract.ProductEntry.COLUMN_PRICE);
+            final int imageIndex = data.getColumnIndex(ProductContract.ProductEntry.COLUMN_PICTURE);
             productName.setText(data.getString(nameIndex));
             productQuantity.setText((data.getInt(quantityIndex) + ""));
             productPrice.setText((data.getInt(priceIndex) + ""));
+            Bitmap image = loadImageFromStorage(data.getInt(imageIndex) + "");
+            if (image != null) {
+                productImageView.setImageBitmap(image);
+            }
             increase_btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -128,10 +144,7 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
                         finish();
                     }
                 })
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                    }
-                });
+                .setNegativeButton(R.string.cancel, null);
         builder.create();
         builder.show();
     }
@@ -145,5 +158,20 @@ public class DetailActivity extends AppCompatActivity implements LoaderManager.L
         ContentValues values = new ContentValues();
         values.put(ProductContract.ProductEntry.COLUMN_QUANTITY, quantity);
         return getContentResolver().update(mCurrentProductUri, values, null, null);
+    }
+
+    private Bitmap loadImageFromStorage(String path) {
+        ContextWrapper cw = new ContextWrapper(getApplicationContext());
+        // path to /data/data/yourapp/app_data/imageDir
+        File directory = cw.getDir("images", Context.MODE_PRIVATE);
+        try {
+            File f = new File(directory, path + ".jpg");
+            Bitmap b = BitmapFactory.decodeStream(new FileInputStream(f));
+            return b;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+
     }
 }

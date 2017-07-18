@@ -4,7 +4,7 @@
     <string name="quantity"><b>Quantity: </b></string>
     <string name="price"><b>Price: </b></string>
     <string name="add">Add</string>
-    <string name="null_content">null</string>
+    <string name="null_content">Please populate all the form fields.</string>
     <string name="editor_insert_product_failed">Error with saving product</string>
     <string name="editor_insert_product_successful">Product saved</string>
     <string name="field_required">Product requires all fields</string>
