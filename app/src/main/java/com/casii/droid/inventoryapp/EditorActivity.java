@@ -20,20 +20,29 @@ import com.casii.droid.inventoryapp.data.ProductContract;
 import java.io.File;
 import java.io.FileOutputStream;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class EditorActivity extends AppCompatActivity {
     private static final int REQUEST_IMAGE_CAPTURE = 1;
     private int pictureId = 0;
     private Bitmap photo;
+    @BindView(R.id.add_product_btn)
+    Button add;
+    @BindView(R.id.name)
+    EditText name_editText;
+    @BindView(R.id.quantity)
+    EditText quatity_editText;
+    @BindView(R.id.price)
+    EditText price_editText;
+    @BindView(R.id.toCameraBtn)
+    Button toCameraBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editor);
-        Button add = (Button) findViewById(R.id.add_product_btn);
-        final EditText name_editText = (EditText) findViewById(R.id.name);
-        final EditText quatity_editText = (EditText) findViewById(R.id.quantity);
-        final EditText price_editText = (EditText) findViewById(R.id.price);
-        Button toCameraBtn = (Button) findViewById(R.id.toCameraBtn);
+        ButterKnife.bind(this);
         toCameraBtn.setEnabled(hasCamera());
         add.setOnClickListener(new View.OnClickListener() {
             @Override

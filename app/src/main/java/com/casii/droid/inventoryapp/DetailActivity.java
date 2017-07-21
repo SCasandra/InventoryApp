@@ -28,30 +28,34 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class DetailActivity extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     private Uri mCurrentProductUri;
     private static final int PRODUCT_LOADER = 1;
-    private TextView productName;
-    private TextView productQuantity;
-    private TextView productPrice;
-    private ImageButton increase_btn;
-    private ImageButton decrease_btn;
-    private Button delete_btn;
-    private Button order_btn;
-    private ImageView productImageView;
+    @BindView(R.id.product_name)
+    TextView productName;
+    @BindView(R.id.product_quantity)
+    TextView productQuantity;
+    @BindView(R.id.product_price)
+    TextView productPrice;
+    @BindView(R.id.plus_btn)
+    ImageButton increase_btn;
+    @BindView(R.id.minus_btn)
+    ImageButton decrease_btn;
+    @BindView(R.id.delete_all_btn)
+    Button delete_btn;
+    @BindView(R.id.order_btn)
+    Button order_btn;
+    @BindView(R.id.product_image_view)
+    ImageView productImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detail_layout);
-        productName = (TextView) findViewById(R.id.product_name);
-        productQuantity = (TextView) findViewById(R.id.product_quantity);
-        productPrice = (TextView) findViewById(R.id.product_price);
-        increase_btn = (ImageButton) findViewById(R.id.plus);
-        decrease_btn = (ImageButton) findViewById(R.id.minus);
-        delete_btn = (Button) findViewById(R.id.delete_all_btn);
-        order_btn = (Button) findViewById(R.id.order_btn);
-        productImageView = (ImageView) findViewById(R.id.product_image_view);
+        ButterKnife.bind(this);
         Intent intent = getIntent();
         mCurrentProductUri = intent.getData();
         if (mCurrentProductUri != null) {
