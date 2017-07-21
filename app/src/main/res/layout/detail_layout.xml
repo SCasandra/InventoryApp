@@ -10,8 +10,7 @@
         android:layout_height="@dimen/image_height"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/fab_margin"
-        android:layout_marginTop="@dimen/fab_margin"
-        />
+        android:layout_marginTop="@dimen/fab_margin" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -77,6 +76,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/fab_margin"
                 android:layout_marginRight="@dimen/little_margin"
+                android:background="?android:selectableItemBackground"
                 android:src="@drawable/ic_exposure_neg_1_black_24dp" />
 
 
@@ -85,6 +85,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/little_margin"
+                android:background="?android:selectableItemBackground"
                 android:src="@drawable/ic_exposure_plus_1_black_24dp" />
 
         </LinearLayout>
@@ -92,8 +93,7 @@
 
     <Button
         android:id="@+id/order_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/buttons_style"
         android:layout_alignBaseline="@+id/delete_all_btn"
         android:layout_alignBottom="@+id/delete_all_btn"
         android:layout_alignParentEnd="true"
@@ -103,8 +103,7 @@
 
     <Button
         android:id="@+id/delete_all_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/buttons_style"
         android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
         android:layout_marginBottom="@dimen/fab_margin"

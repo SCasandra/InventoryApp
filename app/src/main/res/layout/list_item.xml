@@ -61,8 +61,7 @@
 
     <Button
         android:id="@+id/sell_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/buttons_style"
         android:layout_alignParentRight="true"
         android:text="Sell" />
 

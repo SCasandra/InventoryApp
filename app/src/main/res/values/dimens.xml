@@ -5,4 +5,5 @@
     <dimen name="image_height">140dp</dimen>
     <dimen name="image_width">200dp</dimen>
     <dimen name="content_big_margin">50dp</dimen>
+    <dimen name="btns_width">120dp</dimen>
 </resources>

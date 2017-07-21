@@ -14,9 +14,9 @@
 
     <EditText
         android:id="@+id/name"
-        android:inputType="text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="text" />
 
     <TextView
         android:layout_width="match_parent"
@@ -25,9 +25,9 @@
 
     <EditText
         android:id="@+id/quantity"
-        android:inputType="number"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="number" />
 
     <TextView
         android:layout_width="match_parent"
@@ -36,9 +36,9 @@
 
     <EditText
         android:id="@+id/price"
-        android:inputType="number"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:inputType="number" />
 
     <Button
         android:id="@+id/toCameraBtn"
@@ -52,8 +52,7 @@
 
     <Button
         android:id="@+id/add_product_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/buttons_style"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="@dimen/image_height"
         android:text="@string/add" />

@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:src="@android:drawable/btn_star_big_on" />
+            android:src="@drawable/ic_sentiment_dissatisfied_black_48dp" />
 
         <TextView
             android:id="@+id/empty_title_text"
